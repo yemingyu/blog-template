@@ -16,7 +16,7 @@ header-img: "/img/archives-bg.jpg"
 		<ul>
 		{% endif %}
 	
-		<li><span>{{ post.date | date: "%F" }}</span> &raquo; <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></li>
+		<div class="archives"><li><span>{{ post.date | date: "%F" }}</span> &raquo; <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></li></div>
 	
 		{% if forloop.last %}
 		</ul>
