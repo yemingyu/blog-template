@@ -1,0 +1,80 @@
+---
+layout:     post
+title:      "本博客搭建与博客编写参考 "
+subtitle:   "博客搭建"
+date:       2016-02-03
+author:     "夜禹"
+header-img: "img/post-bg-see-u-ali.jpg"
+tags:
+    - Record
+---
+
+
+
+> Yeah It's on. 
+
+
+### 本博客搭建
+本博客在搭建时使用了Github Pages,主要参考[这个链接](http://www.jianshu.com/p/05289a4bc8b2)中的内容进行域名申请，配置Github，将域名与Github Pages绑定等。
+
+在用上述链接进行各个部分操作时<strong>有个坑</strong>，申请时发现使用了网上的优惠码，在使用支付宝支付有时会出现各种报personal information error或者bill error之类，这是由于使用的优惠码可能不支持支付宝支付，所以后来我就没有使用最便宜的那种优惠码，坑！
+
+然后采用Github账户名建立一个新的repo:username.github.io，例如我的repo的名字就是yemingyu.github.io。
+
+
+下一步就是将blog的code放入这个repo中，本博客是基于[jekyll](http://jekyll.bootcss.com/)进行搭建，网上现在有很多的模版程序，本博客选用的是[uno](http://github.com/yemingyu/uno)，然后将[vno](http://github.com/yemingyu/vno)中的渲染移植过来，404.html就用的公益404了。移植的过程中有诸多修改，不一一阐述，具体的blog代码请[访问这里](http://github.com/yemingyu/yemingyu.github.io)。
+
+如果还想对blog搭建有更详细的了解，可以参考[这个链接](http://blog.csdn.net/wave_1102/article/details/41548951)。
+
+搭建完成后github一直发送邮件warning我_config.yml中的highlighter: pygments应该改成highlighter: rouge，但改了之后本地就报错，最终就忽略了这个问题，一切正常。
+
+### 博客编写参考
+
+博客页面编写主要参考[这个链接](http://jekyll.bootcss.com/docs/home/)，并且可以使用liquid语法，加上一些web开发经验就OK啦！<br />
+以下是我自己的一些测试：
+<p><li>图片显示</li></p>
+![背景图片](/assets/images/cover.jpg)
+<p><li>下载图片</li></p>
+你可以[下载背景图片](/assets/images/cover.jpg)
+<p><li>jekyll语法code显示</li></p>
+
+{% highlight objc linenos %}
+    for (NSInteger i = 0; i < methodCount; i++) {
+        Method method = methodList[i];
+        NSString *methodName = [NSString stringWithCString:sel_getName(method_getName(method)) encoding:NSUTF8StringEncoding];
+        if ([@"printTest" isEqualToString:methodName]) {
+            lastImp = method_getImplementation(method);
+            lastSel = method_getName(method);
+        }
+    }
+{% endhighlight %}
+
+<p><li>liquid语法code显示</li></p>
+
+```        
+    for (NSInteger i = 0; i < methodCount; i++) {
+        Method method = methodList[i];
+        NSString *methodName = [NSString stringWithCString:sel_getName(method_getName(method)) encoding:NSUTF8StringEncoding];
+        if ([@"printTest" isEqualToString:methodName]) {
+            lastImp = method_getImplementation(method);
+            lastSel = method_getName(method);
+        }
+    }
+```
+
+### 感谢
+
+本博客在搭建时参考了iOS界大神[喵神](http://onevcat.com/)的博客的风格，但他是基于[Ghost](https://ghost.org/)搭建的，而本文是基于[jekyll](http://jekyll.bootcss.com/)搭建，搭建过程中得到了大V同时是代码女神的[羡辙同学](http://zhangwenli.com/)的大力帮助，这里再次感谢一下下！
+
+### Tips
+后来用jekyll server启动服务时出现了以下错误：
+{% highlight js %}
+You are missing a library required for Markdown. Please run:
+$ [sudo] gem install kramdown
+Conversion error: Jekyll::Converters::Markdown encountered an error while converting '_posts/2016-02-03-本博客搭建.markdown/#excerpt':
+                Missing dependency: kramdown
+         ERROR: YOUR SITE COULD NOT BE BUILT:
+                ------------------------------------
+                Missing dependency: kramdown
+{% endhighlight %}
+原因是```/Library/Ruby/Gems/2.0.0/gems/```下面的jekyll版本与实际用的```jekyll```版本不一致，输入命令```which jekyll```可知```jekyll```在```/usr/bin/jekyll```，解决方法是先卸载所有的```jekyll```，然后安装```/Library/Ruby/Gems/2.0.0/gems/```对应版本的```jekyll```，然后将```/usr/bin/jekyll```拷贝到```/usr/local/bin/```下面，最后一个需要拷贝可能是我之前加了软链接的原因，如果没有报找不到```/usr/local/bin/jekyll```就不需要了。
