@@ -5,13 +5,16 @@ subtitle:   "CocoaPos"
 date:       2016-02-24
 author:     "夜禹"
 header-img: "img/post-bg-see-u-ali.jpg"
+category: Record
+header-mask: 0.3
+catalog:    true
 tags:
     - Record
 ---
 
 > CocoaPods是iOS项目的依赖管理系统，有点类似于Java项目管理时使用的Maven。通过使用CocoaPods，可以很方便的添加、删除和更新iOS项目所依赖的第三方库或者私有库。其官方网站是[CocoaPods.org](https://cocoapods.org/)。
 
-### 安装Ruby环境
+## 安装Ruby环境
 CocoaPods是使用Ruby实现的，Ruby可以通过```gem```命令来安装，MAC中一般都已经自带了Ruby环境，如果没有请参考[Ruby 官方文档](https://www.ruby-lang.org/en/documentation/installation/)来安装Ruby环境。
 
 
@@ -21,7 +24,7 @@ CocoaPods是使用Ruby实现的，Ruby可以通过```gem```命令来安装，MAC
 	sudo gem update
 {% endhighlight %}
 
-### 安装CocoaPods
+## 安装CocoaPods
 在安装CocoaPods之前，首先要知道团队所使用的CocoaPods版本，自己安装时也一定要与团队所使用的CocoaPods版本对应，否则容易出现兼容问题，如果个人使用，就无所谓了。
 假设目前团队所使用的CocoaPods版本是0.36，则可有使用以下命令安装0.36版本的CocoaPods：
 {% highlight bash %}
@@ -46,7 +49,7 @@ gem sources -l
 {% endhighlight %}
 注意，此处用的是https，因为目前已经全面从http迁移到https，所以以前的http已经无法正常使用了。
 
-### 使用CocoaPods索引
+## 使用CocoaPods索引
 通过下面的命令可以添加CocoaPods索引，可以参考《iOS开发进阶》。
 {% highlight bash %}
 pod repo remove master
@@ -160,7 +163,7 @@ end
 
 最后说一下.gitignore文件,通常在团队合作时不将Pods文件夹传到git上，因为通常太大太慢。
 
-### Tips
+## Tips
 ** 是所有子目录，包括子目录的子目录。<br />
 * 只是一级子目录。<br />
 多个repo里的最好不要重名，包括私有的和公有的，以防conflict。

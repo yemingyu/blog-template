@@ -5,6 +5,9 @@ subtitle:   "block分析"
 date:       2016-02-13
 author:     "夜禹"
 header-img: "img/post-bg-see-u-ali.jpg"
+category: Block
+header-mask: 0.3
+catalog:    true
 tags:
     - Record
 ---
