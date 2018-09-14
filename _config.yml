@@ -62,11 +62,11 @@ netease_comment: false
 
 # Analytics settings
 # Baidu Analytics 
-# ba_track_id: [your track id]
+ba_track_id: ee0c2f8b3b44584be36429b249134e31
 
 # Google Analytics
-ga_track_id: 'UA-501066-1'            # Format: UA-xxxxxx-xx
-ga_domain: yemingyu.me
+# ga_track_id: 'UA-501066-1'            # Format: UA-xxxxxx-xx
+# ga_domain: yemingyu.com
 
 
 
