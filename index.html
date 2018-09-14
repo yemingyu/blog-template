@@ -23,7 +23,9 @@ description: "我干了什么 究竟拿了时间换了什么"
         </div>
     </a>
     <p class="post-meta">
-        Posted by {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} on {{ post.date | date: "%B %-d, %Y" }}
+        Posted by {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} on {{ post.date | date: "%B %-d, %Y" }}&nbsp;
+        {% if site.leancloud_app_id %}<span id="{{ post.url | prepend: site.url }}" class="post-link leancloud_visitors" data-flag-title="{{ post.title }}">浏览量:&nbsp;<span class="leancloud-visitors-count">-</span>次</span>{% endif %}
+        <!-- 浏览量:&nbsp;<span data-hk-page="{{ page.url | prepend: site.url }}"> - </span>次. -->
     </p>
 </div>
 <hr>

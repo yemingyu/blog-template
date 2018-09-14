@@ -40,7 +40,7 @@ layout: default
                     {% comment %} if page.subtitle {% endcomment %}
                     <h2 class="subheading">{{ page.subtitle }}</h2>
                     {% comment %} endif {% endcomment %}
-                    <span class="meta">Posted by {% if page.author %}{{ page.author }}{% else %}{{ site.title }}{% endif %} on {{ page.date | date: "%B %-d, %Y" }}</span>
+                    <span class="meta">Posted by {% if page.author %}{{ page.author }}{% else %}{{ site.title }}{% endif %} on {{ page.date | date: "%B %-d, %Y" }}&nbsp;{% if site.leancloud_app_id %}<span id="{{ page.url | post.url | prepend: site.url }}" class="leancloud_visitors" data-flag-title="{{ page.title }}">浏览量:&nbsp;<span class="leancloud-visitors-count">-</span>次</span>{% endif %}</span>
                 </div>
             </div>
         </div>

@@ -68,6 +68,11 @@ ba_track_id: ee0c2f8b3b44584be36429b249134e31
 # ga_track_id: 'UA-501066-1'            # Format: UA-xxxxxx-xx
 # ga_domain: yemingyu.com
 
+# leancloud 展示页面访问次数
+# leancloud:
+leancloud_enable: true
+leancloud_app_id: bXKUOIQA7YBpRTAPCFzvL0R4-gzGzoHsz
+leancloud_app_key: UTrQIscJrhjzqvFBO3Lfbjjn
 
 
 # Sidebar settings
